@@ -3,7 +3,7 @@ module.exports = {
         name: 'Erohub',
         themeColor: '#F4F6FA',
         background_color:'#F4F6FA',
-        msTileColor: '#000000',
+        msTileColor: '#F4F6FA',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'white',
         iconPaths: {
