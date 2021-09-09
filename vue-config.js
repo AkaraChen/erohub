@@ -1,7 +1,7 @@
 module.exports = {
     pwa: {
         name: 'Erohub',
-        themeColor: '#FFF5F6FA',
+        themeColor: '#F4F6FA',
         msTileColor: '#000000',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
