@@ -5,7 +5,7 @@ module.exports = {
         background_color:'#F4F6FA',
         msTileColor: '#000000',
         appleMobileWebAppCapable: 'yes',
-        appleMobileWebAppStatusBarStyle: 'black',
+        appleMobileWebAppStatusBarStyle: 'white',
         iconPaths: {
             faviconSVG: 'img/icons/favicon.svg',
             favicon32: 'img/icons/favicon-32x32.png',
