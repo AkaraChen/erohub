@@ -13,5 +13,11 @@ module.exports = {
             maskIcon: 'img/icons/safari-pinned-tab.svg',
             msTileImage: 'img/icons/msapplication-icon-144x144.png'
         },
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+            // swSrc is required in InjectManifest mode.
+            swSrc: 'dev/sw.js',
+            // ...other Workbox options...
+        }
     },
 }
