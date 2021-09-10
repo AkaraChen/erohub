@@ -1,19 +1,5 @@
 <template>
   <div class="row">
-    <n-grid x-gap="12" :cols="4">
-      <n-gi>
-        <div class="light-green"></div>
-      </n-gi>
-      <n-gi>
-        <div class="green"></div>
-      </n-gi>
-      <n-gi>
-        <div class="light-green"></div>
-      </n-gi>
-      <n-gi>
-        <div class="green"></div>
-      </n-gi>
-    </n-grid>
     <div v-for="item in meta" class="col-sm-3" style="margin-top: 10px">
       <div class="card">
         <img class="lazy zoom" :src="item.thumb" alt="" height="auto"/>
