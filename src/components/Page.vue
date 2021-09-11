@@ -59,11 +59,12 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://api.erohub.org/api/posts?page=' + this.$route.params.page)
+    axios.get('https://' + this.backend + '/api/posts?page=' + this.$route.params.page)
         .then(response => (this.meta = response.data.data))
         .catch(function (error) { // 请求失败处理
           console.log(error);
         });
+    document.title = 'Erohub - 第' + this.$route.params.page + '页'
   },
 }
 </script>

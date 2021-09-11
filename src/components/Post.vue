@@ -15,12 +15,12 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://api.erohub.org/api/post?cid=' + this.$route.params.post)
-      .then(response => (this.meta = response.data.data))
+    axios.get('https://' + this.backend + '/api/post?cid=' + this.$route.params.post)
+      .then(response => (this.meta = response.data.data) (document.title = response.data.data.title + ' - Erohub'))
       .catch(function (error) { // 请求失败处理
         console.log(error);
       });
-  }
+    }
 }
 </script>
 
