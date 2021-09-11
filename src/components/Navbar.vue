@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   name: "Navbar",
@@ -25,5 +24,7 @@ export default {
 </script>
 
 <style scoped>
-
+.navbar-toggler {
+  display: none;
+}
 </style>

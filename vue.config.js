@@ -17,5 +17,7 @@ module.exports = {
     manifestOptions: {
       background_color: '#F5F6FA'
     }
-  }
+  },
+
+  productionSourceMap: false
 }

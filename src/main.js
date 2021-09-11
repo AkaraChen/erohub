@@ -9,4 +9,3 @@ const app = createApp(App).use(router)
 app.config.globalProperties.backend = 'api.erohub.org'
 
 app.mount('#app')
-
