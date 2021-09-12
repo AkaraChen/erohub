@@ -11,17 +11,26 @@ export default {
   name: "Post",
   data() {
     return {
-      meta: ''
+      meta: '',
+      error:'false'
     }
   },
   mounted() {
-    axios.get('https://' + this.backend + '/api/post?cid=' + this.$route.params.post)
-      .then(response => (this.meta = response.data.data) (document.title = response.data.data.title + ' - Erohub'))
-      .catch(function (error) { // 请求失败处理
-        console.log(error);
-      });
+    axios.get('https://erohub-backend.vercel.app/' + this.$route.params.post + '.json')
+        .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
+        .catch(error => {
+          console.log(error)
+          this.error = true
+        })
+    if (this.error){
+      axios.get('https://api.erohub.org/api/post?cid=' + this.$route.params.post)
+          .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
+          .catch(error => {
+          })
     }
+  }
 }
+
 </script>
 
 <style scoped>
@@ -32,7 +41,7 @@ export default {
   column-gap: 30px;
 }
 
-.masonry>>>img{
+.masonry >>> img {
   margin-bottom: 30px;
 }
 
@@ -54,7 +63,8 @@ export default {
   .masonry {
     columns: 1;
   }
-  .masonry>>>img{
+
+  .masonry >>> img {
     margin-bottom: 20px;
   }
 

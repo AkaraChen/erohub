@@ -27,4 +27,5 @@ export default {
 .navbar-toggler {
   display: none;
 }
+
 </style>
