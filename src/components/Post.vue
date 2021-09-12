@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       meta: '',
-      error:'false'
+      error: 'false'
     }
   },
   mounted() {
@@ -22,10 +22,11 @@ export default {
           console.log(error)
           this.error = true
         })
-    if (this.error){
+    if (this.error) {
       axios.get('https://api.erohub.org/api/post?cid=' + this.$route.params.post)
           .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
           .catch(error => {
+            console.log(error)
           })
     }
   }
