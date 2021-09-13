@@ -2,7 +2,7 @@
   <div class="row">
     <div v-for="item in meta" class="col-sm-3" style="margin-top: 10px">
       <div class="card">
-        <img class="lazy zoom" :src="item.thumb" alt="" height="auto"/>
+        <img class="zoom" :src="item.thumb" alt="" height="auto"/>
         <div class="card-body">
           <h3 class="card-title">
             <a :href="'/#/archives/' + item.cid">
@@ -40,7 +40,6 @@ import axios from 'axios'
 
 
 export default {
-  name: "Page",
   data() {
     return {
       meta: [{"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},

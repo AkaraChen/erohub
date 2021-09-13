@@ -8,7 +8,6 @@
 import axios from "axios";
 
 export default {
-  name: "Post",
   data() {
     return {
       meta: '',

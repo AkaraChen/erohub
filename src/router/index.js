@@ -5,17 +5,14 @@ import Post from "../components/Post";
 const routes = [
     {
         path: '/',
-        name: 'Homepage',
         redirect: '/page/1'
     },
     {
         path: '/page/:page',
-        name: 'Page',
         component: Page
     },
     {
         path: '/archives/:post',
-        name: 'Post',
         component: Post
     },
 ]
