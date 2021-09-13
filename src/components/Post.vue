@@ -16,7 +16,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://erohub-backend.vercel.app/' + this.$route.params.post + '.json')
+    axios.get('https://erohub-backend.vercel.app/post/' + this.$route.params.post + '.json')
         .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
         .catch(error => {
           console.log(error)
