@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       meta: '',
+      error: 'false'
     }
   },
   mounted() {
@@ -19,7 +20,15 @@ export default {
         .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
         .catch(error => {
           console.log(error)
+          this.error = 'true'
         })
+    if (this.error) {
+      axios.get('https://erohub-backend.pages.dev/post/' + this.$route.params.post + '.json')
+          .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
+          .catch(error => {
+            console.log(error)
+          })
+    }
   }
 }
 
