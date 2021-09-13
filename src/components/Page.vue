@@ -60,14 +60,14 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://' + this.backend + '/api/posts?page=' + this.$route.params.page)
+    axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.page + '.json')
         .then(response => (this.meta = response.data.data))
         .catch(error => {
           console.log(error)
           this.error = true
         });
     if (this.error) {
-      axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.page + '.json')
+      axios.get('https://' + this.backend + '/api/posts?page=' + this.$route.params.page)
           .then(response => (this.meta = response.data.data)
           (this.error = false))
           .catch(error => {
