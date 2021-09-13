@@ -24,7 +24,9 @@ export default {
         })
     if (this.error) {
       axios.get('https://api.erohub.org/api/post?cid=' + this.$route.params.post)
-          .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
+          .then(response => (this.meta = response.data.data)
+          (document.title = response.data.data.title + ' - Erohub')
+          (this.error = false))
           .catch(error => {
             console.log(error)
           })

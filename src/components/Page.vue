@@ -55,15 +55,25 @@ export default {
         {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
         {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
         {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-      ]
+      ],
+      error: 'false'
     }
   },
   mounted() {
     axios.get('https://' + this.backend + '/api/posts?page=' + this.$route.params.page)
         .then(response => (this.meta = response.data.data))
-        .catch(function (error) { // 请求失败处理
-          console.log(error);
+        .catch(error => {
+          console.log(error)
+          this.error = true
         });
+    if (this.error) {
+      axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.post + '.json')
+          .then(response => (this.meta = response.data.data)
+          (this.error = false))
+          .catch(error => {
+            console.log(error)
+          })
+    }
     document.title = 'Erohub - 第' + this.$route.params.page + '页'
   },
 }
