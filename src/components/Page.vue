@@ -67,7 +67,7 @@ export default {
           this.error = true
         });
     if (this.error) {
-      axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.post + '.json')
+      axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.page + '.json')
           .then(response => (this.meta = response.data.data)
           (this.error = false))
           .catch(error => {
