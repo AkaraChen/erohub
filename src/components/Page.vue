@@ -32,6 +32,7 @@
   height: 180px;
   object-fit: cover;
 }
+
 </style>
 
 
