@@ -57,7 +57,6 @@ export default {
         {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
         {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
       ],
-      error: 'false'
     }
   },
   mounted() {
@@ -67,15 +66,7 @@ export default {
         .then(response => (this.meta = response.data.data))
         .catch(error => {
           console.log(error)
-          this.error = true
         });
-    if (this.error) {
-      axios.get('https://erohub-backend.pages.dev/page/' + this.$route.params.page + '.json')
-          .then(response => (this.meta = response.data.data))
-          .catch(error => {
-            console.log(error)
-          });
-    }
     document.title = 'Erohub - 第' + this.$route.params.page + '页'
     NProgress.done()
   },
