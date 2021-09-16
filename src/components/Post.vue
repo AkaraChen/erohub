@@ -6,6 +6,8 @@
 
 <script>
 import axios from "axios";
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 export default {
   data() {
@@ -15,6 +17,8 @@ export default {
     }
   },
   mounted() {
+    NProgress.start()
+    NProgress.set(0.4)
     axios.get('https://erohub-backend.vercel.app/post/' + this.$route.params.post + '.json')
         .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
         .catch(error => {
@@ -28,6 +32,7 @@ export default {
             console.log(error)
           })
     }
+    NProgress.done()
   }
 }
 

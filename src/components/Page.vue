@@ -38,6 +38,8 @@
 
 <script>
 import axios from 'axios'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 export default {
   data() {
@@ -59,6 +61,8 @@ export default {
     }
   },
   mounted() {
+    NProgress.start()
+    NProgress.set(0.4)
     axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.page + '.json')
         .then(response => (this.meta = response.data.data))
         .catch(error => {
@@ -73,6 +77,7 @@ export default {
           });
     }
     document.title = 'Erohub - 第' + this.$route.params.page + '页'
+    NProgress.done()
   },
 }
 </script>
