@@ -18,7 +18,7 @@ export default {
   mounted() {
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://api.erohub.org/api/post?cid=6247')
+    axios.get('https://erohub-backend.vercel.app/post/' + this.$route.params.post + '.json')
         .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
         .catch(error => {
           console.log(error)
