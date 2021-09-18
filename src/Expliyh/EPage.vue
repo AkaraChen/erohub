@@ -181,7 +181,7 @@ export default {
   mounted() {
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://www.expli.top/wp-json/wp/v2/posts?categories=3&per_page=12&page=' + this.$route.params.page)
+    axios.get('https://www.expli.top/wp-json/wp/v2/posts?categories=24&per_page=12&page=' + this.$route.params.page)
         .then(response => (this.meta = response.data))
         .catch(error => {
           console.log(error)
