@@ -3,6 +3,8 @@ import Page from "../components/Page";
 import Post from "../components/Post";
 import Konachan from "@/Konachan/Konachan";
 import KPage from "@/Konachan/KPage";
+import Expliyh from "@/Expliyh/Expliyh";
+import EPage from "@/Expliyh/EPage";
 
 const routes = [
     {
@@ -27,6 +29,17 @@ const routes = [
                 component:KPage
             }
         ],
+    },
+    {
+        path: '/expliyh',
+        component: Expliyh,
+        redirect: '/expliyh/page/1',
+        children: [
+            {
+                path: '/expliyh/page/:page',
+                component: EPage
+            }
+        ]
     }
 ]
 
