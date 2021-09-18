@@ -9,6 +9,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">首页</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/#/konachan">Konachan</a>
+          </li>
         </ul>
       </div>
     </div>

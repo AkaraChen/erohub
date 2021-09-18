@@ -1,6 +1,8 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import Page from "../components/Page";
 import Post from "../components/Post";
+import Konachan from "@/Konachan/Konachan";
+import KPage from "@/Konachan/KPage";
 
 const routes = [
     {
@@ -15,6 +17,17 @@ const routes = [
         path: '/archives/:post',
         component: Post
     },
+    {
+        path: '/konachan',
+        component: Konachan,
+        redirect: '/konachan/page/1',
+        children:[
+            {
+                path: '/konachan/page/:page',
+                component:KPage
+            }
+        ],
+    }
 ]
 
 const router = createRouter({
