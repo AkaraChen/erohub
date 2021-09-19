@@ -37,7 +37,7 @@ export default {
   column-gap: 30px;
 }
 
-.masonry >>> img {
+.masonry :deep(img) {
   margin-bottom: 30px;
 }
 
