@@ -4,7 +4,7 @@
       这个页面的信息全部采集于 Expliyh ，点击后会跳转到 Expliyh 的站点
     </div>
     <div class="row">
-      <div v-for="item in meta" class="col-sm-3" style="margin-bottom: 10px">
+      <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
         <div class="card">
           <img class="zoom" :src="item.yoast_head_json.og_image[0].url" alt="" height="auto"/>
           <div class="card-body">
