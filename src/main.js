@@ -3,6 +3,6 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import './main.css'
-import { factory } from './tabler'
+import './bootstrap.min'
 
 createApp(App).use(router).mount('#app')
