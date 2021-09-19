@@ -17,7 +17,7 @@
                   <circle cx="12" cy="7" r="4"></circle>
                   <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                 </svg>
-                作者：{{ item.author }}
+                <p>作者：{{ item.author }}</p>
               </a></h3>
           </div>
         </div>
@@ -73,5 +73,12 @@ export default {
   width: 100%;
   height: 180px;
   object-fit: cover;
+}
+
+p {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>

@@ -10,7 +10,7 @@
           <div class="card-body">
             <h3 class="card-title">
               <a :href="item.link" target="_blank">
-                {{ item.title.rendered }}
+                <p>{{ item.title.rendered }}</p>
               </a></h3>
           </div>
         </div>
@@ -68,5 +68,12 @@ export default {
   width: 100%;
   height: 180px;
   object-fit: cover;
+}
+
+p {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>
