@@ -1,30 +1,35 @@
 <template>
-  <div class="row">
-    <div v-for="item in meta" class="col-sm-3" style="margin-bottom: 10px">
-      <div class="card">
-        <img class="zoom" :src="item.preview_url" alt="" height="auto"/>
-        <div class="card-body">
-          <h3 class="card-title">
-            <a :href="item.source" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24"
-                   viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                   stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-              </svg>
-              作者：{{ item.author }}
-            </a></h3>
+  <div>
+    <div class="alert alert-primary" role="alert">
+      这个页面的信息全部采集于 KonaChan ，点击后会跳转到 Pixiv 原作者的页面
+    </div>
+    <div class="row">
+      <div v-for="item in meta" class="col-sm-3" style="margin-bottom: 10px">
+        <div class="card">
+          <img class="zoom" :src="item.preview_url" alt="" height="auto"/>
+          <div class="card-body">
+            <h3 class="card-title">
+              <a :href="item.source" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24"
+                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                     stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                </svg>
+                作者：{{ item.author }}
+              </a></h3>
+          </div>
         </div>
       </div>
+      <nav aria-label="Page navigation example">
+        <div class="pagination" style="margin-top: 10px;justify-content:center;">
+          <a class="btn" :href="'/konachan/page/'+(this.$route.params.page-1)">上一页</a>
+          <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
+          <a class="btn" :href="'/konachan/page/'+(Number(this.$route.params.page)+1)">下一页</a>
+        </div>
+      </nav>
     </div>
-    <nav aria-label="Page navigation example">
-      <div class="pagination" style="margin-top: 10px;justify-content:center;">
-        <a class="btn" :href="'/konachan/page/'+(this.$route.params.page-1)">上一页</a>
-        <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
-        <a class="btn" :href="'/konachan/page/'+(Number(this.$route.params.page)+1)">下一页</a>
-      </div>
-    </nav>
   </div>
 </template>
 <script>
@@ -63,7 +68,6 @@ export default {
   },
 }
 </script>
-
 <style scoped>
 .pagination {
   margin-bottom: 10px;

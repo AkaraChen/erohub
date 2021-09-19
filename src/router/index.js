@@ -1,10 +1,8 @@
-import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import Page from "../components/Page";
 import Post from "../components/Post";
-import Konachan from "@/Konachan/Konachan";
-import KPage from "@/Konachan/KPage";
-import Expliyh from "@/Expliyh/Expliyh";
-import EPage from "@/Expliyh/EPage";
+import Konachan from "@/external/Konachan";
+import Expliyh from "@/external/Expliyh";
 
 const routes = [
     {
@@ -21,26 +19,20 @@ const routes = [
     },
     {
         path: '/konachan',
-        component: Konachan,
         redirect: '/konachan/page/1',
-        children:[
-            {
-                path: '/konachan/page/:page',
-                component:KPage
-            }
-        ],
+    },
+    {
+        path: '/konachan/page/:page',
+        component: Konachan,
     },
     {
         path: '/expliyh',
-        component: Expliyh,
         redirect: '/expliyh/page/1',
-        children: [
-            {
-                path: '/expliyh/page/:page',
-                component: EPage
-            }
-        ]
     },
+    {
+        path: '/expliyh/page/:page',
+        component: Expliyh,
+    }
 ]
 
 const router = createRouter({

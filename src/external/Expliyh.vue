@@ -1,4 +1,8 @@
 <template>
+<div>
+  <div class="alert alert-primary" role="alert">
+    这个页面的信息全部采集于 Expliyh ，点击后会跳转到 Expliyh 的站点
+  </div>
   <div class="row">
     <div v-for="item in meta" class="col-sm-3" style="margin-bottom: 10px">
       <div class="card">
@@ -19,6 +23,7 @@
       </div>
     </nav>
   </div>
+</div>
 </template>
 
 <script>
