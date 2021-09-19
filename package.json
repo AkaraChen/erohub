@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "purgecss" : "purgecss --css src/tabler.min.css --content src/**/*.vue src/*.vue public/*.html --output src/tabler.css"
   },
   "dependencies": {
     "axios": "^0.21.4",
