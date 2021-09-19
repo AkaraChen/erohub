@@ -60,7 +60,7 @@ export default {
     columns: 1;
   }
 
-  .masonry >>> img {
+  .masonry :deep(img) {
     margin-bottom: 20px;
   }
 
