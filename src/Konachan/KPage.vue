@@ -21,8 +21,7 @@
     <nav aria-label="Page navigation example">
       <div class="pagination" style="margin-top: 10px;justify-content:center;">
         <a class="btn" :href="'/konachan/page/'+(this.$route.params.page-1)">上一页</a>
-        <a class="btn" style="margin-left: 5px;margin-right: 5px"
-           :href="'/#/page/'+this.$route.params.page">当前页面：{{ this.$route.params.page }}</a>
+        <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
         <a class="btn" :href="'/konachan/page/'+(Number(this.$route.params.page)+1)">下一页</a>
       </div>
     </nav>
