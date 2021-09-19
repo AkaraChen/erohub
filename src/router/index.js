@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHistory,} from 'vue-router'
 import Page from "../components/Page";
 import Post from "../components/Post";
 import Konachan from "@/external/Konachan";

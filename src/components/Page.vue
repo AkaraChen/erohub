@@ -6,7 +6,7 @@
         <div class="card-body">
           <h3 class="card-title">
             <a :href="'/archives/' + item.cid">
-              {{ item.title }}
+              <p>{{ item.title }}</p>
             </a></h3>
         </div>
       </div>
@@ -30,6 +30,13 @@
   width: 100%;
   height: 180px;
   object-fit: cover;
+}
+
+p {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 </style>
