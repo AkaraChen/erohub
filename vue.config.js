@@ -18,6 +18,5 @@ module.exports = {
       background_color: '#F5F6FA'
     }
   },
-
   productionSourceMap: false
 }
