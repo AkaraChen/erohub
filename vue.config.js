@@ -18,5 +18,10 @@ module.exports = {
       background_color: '#F5F6FA'
     }
   },
-  productionSourceMap: false
+  productionSourceMap: false,
+  // chainWebpack: config => {
+  //   config
+  //       .plugin('webpack-bundle-analyzer')
+  //       .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+  // },
 }
