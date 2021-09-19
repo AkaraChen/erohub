@@ -5,7 +5,7 @@
         <img class="zoom" :src="item.thumb" alt="" height="auto"/>
         <div class="card-body">
           <h3 class="card-title">
-            <a :href="'/#/archives/' + item.cid">
+            <a :href="'/archives/' + item.cid">
               {{ item.title }}
             </a></h3>
         </div>
@@ -13,10 +13,10 @@
     </div>
     <nav aria-label="Page navigation example">
       <div class="pagination" style="margin-top: 10px;justify-content:center;">
-        <a class="btn" :href="'/#/page/'+(this.$route.params.page-1)">上一页</a>
+        <a class="btn" :href="'/page/'+(this.$route.params.page-1)">上一页</a>
         <a class="btn" style="margin-left: 5px;margin-right: 5px"
-           :href="'/#/page/'+this.$route.params.page">当前页面：{{ this.$route.params.page }}</a>
-        <a class="btn" :href="'/#/page/'+(Number(this.$route.params.page)+1)">下一页</a>
+           :href="'/page/'+this.$route.params.page">当前页面：{{ this.$route.params.page }}</a>
+        <a class="btn" :href="'/page/'+(Number(this.$route.params.page)+1)">下一页</a>
       </div>
     </nav>
   </div>
