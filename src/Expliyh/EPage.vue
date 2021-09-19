@@ -5,7 +5,7 @@
         <img class="zoom" :src="item.yoast_head_json.og_image[0].url" alt="" height="auto"/>
         <div class="card-body">
           <h3 class="card-title">
-            <a :href="item.link">
+            <a :href="item.link" target="_blank">
               {{ item.title.rendered }}
             </a></h3>
         </div>
