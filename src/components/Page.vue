@@ -43,22 +43,18 @@ import 'nprogress/nprogress.css'
 export default {
   data() {
     return {
-      meta: [{"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"title": "加载中", "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-      ],
+      meta: ''
     }
   },
   mounted() {
+    const data = []
+    for (let i = 1; i <= 12; i++) {
+      data.push({
+        "title": "加载中...",
+        "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"
+      });
+    }
+    this.meta = data
     NProgress.start()
     NProgress.set(0.4)
     axios.get('https://erohub-backend.vercel.app/page/' + this.$route.params.page + '.json')

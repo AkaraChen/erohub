@@ -40,22 +40,18 @@ import 'nprogress/nprogress.css'
 export default {
   data() {
     return {
-      meta: [{"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-        {"author": "加载中...", "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"},
-      ],
+      meta: ''
     }
   },
   mounted() {
+    const data = []
+    for (let i = 1; i <= 12; i++) {
+      data.push({
+        "author": "加载中...",
+        "preview_url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"
+      });
+    }
+    this.meta = data
     NProgress.start()
     NProgress.set(0.4)
     axios.get('https://cdn.jsdelivr.net/gh/AkaraChen/Konachan@latest/dist/' + this.$route.params.page + '.json')
