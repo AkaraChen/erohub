@@ -54,7 +54,7 @@ export default {
   mounted() {
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://cdn.jsdelivr.net/gh/AkaraChen/Konachan@main/dist/' + this.$route.params.page + '.json')
+    axios.get('https://cdn.jsdelivr.net/gh/AkaraChen/Konachan@latest/dist/' + this.$route.params.page + '.json')
         .then(response => (this.meta = response.data))
         .catch(error => {
           console.log(error)
