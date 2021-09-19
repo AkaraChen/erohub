@@ -2,7 +2,7 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import './tabler.css'
-import './tabler'
+import './main.css'
+import { factory } from './tabler'
 
 createApp(App).use(router).mount('#app')
