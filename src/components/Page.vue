@@ -53,7 +53,7 @@ export default {
       meta: ''
     }
   },
-  mounted() {
+  created() {
     const data = []
     for (let i = 1; i <= 12; i++) {
       data.push({

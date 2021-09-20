@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory,} from 'vue-router'
-import Page from "../components/Page";
-import Post from "../components/Post";
-import Konachan from "@/external/Konachan";
-import Expliyh from "@/external/Expliyh";
+const Page = () => import("../components/Page")
+const Post = () => import("../components/Post")
+const Konachan = () => import("@/external/Konachan")
+const Expliyh = () => import("@/external/Expliyh")
 
 const routes = [
     {
@@ -32,7 +32,7 @@ const routes = [
     {
         path: '/expliyh/page/:page',
         component: Expliyh,
-    }
+    },
 ]
 
 const router = createRouter({

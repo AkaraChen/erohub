@@ -15,7 +15,7 @@ export default {
       meta: '',
     }
   },
-  mounted() {
+  created() {
     NProgress.start()
     NProgress.set(0.4)
     axios.get('https://erohub-backend.vercel.app/post/' + this.$route.params.post + '.json')
