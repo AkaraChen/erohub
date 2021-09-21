@@ -5,19 +5,18 @@
         <img class="zoom" :src="item.thumb" alt="" height="auto"/>
         <div class="card-body">
           <h3 class="card-title">
-            <a :href="'/archives/' + item.cid">
+            <router-link :to="'/archives/' + item.cid">
               <p>{{ item.title }}</p>
-            </a></h3>
+            </router-link>
+          </h3>
         </div>
       </div>
     </div>
-    <nav aria-label="Page navigation example">
       <div class="pagination" style="margin-top: 10px;justify-content:center;">
-        <a class="btn" :href="'/page/'+(this.$route.params.page-1)">上一页</a>
+        <router-link class="btn" :to="'/page/'+(this.$route.params.page-1)">上一页</router-link>
         <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
-        <a class="btn" :href="'/page/'+(Number(this.$route.params.page)+1)">下一页</a>
+        <router-link class="btn" :to="'/page/'+(Number(this.$route.params.page)+1)">下一页</router-link>
       </div>
-    </nav>
   </div>
 </template>
 

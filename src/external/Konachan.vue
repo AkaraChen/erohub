@@ -25,13 +25,11 @@
           </div>
         </div>
       </div>
-      <nav aria-label="Page navigation example">
-        <div class="pagination" style="margin-top: 10px;justify-content:center;">
-          <a class="btn" :href="'/konachan/page/'+(this.$route.params.page-1)">上一页</a>
-          <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
-          <a class="btn" :href="'/konachan/page/'+(Number(this.$route.params.page)+1)">下一页</a>
-        </div>
-      </nav>
+      <div class="pagination" style="margin-top: 10px;justify-content:center;">
+        <router-link class="btn" :to="'/konachan/page/'+(this.$route.params.page-1)">上一页</router-link>
+        <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
+        <router-link class="btn" :to="'/konachan/page/'+(Number(this.$route.params.page)+1)">下一页</router-link>
+      </div>
     </div>
   </div>
 </template>
