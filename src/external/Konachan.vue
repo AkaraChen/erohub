@@ -9,7 +9,7 @@
           <img class="zoom" :src="item.preview_url" alt="" height="auto"/>
           <div class="card-body">
             <h3 class="card-title">
-              <a :href="item.source" target="_blank">
+              <a :href="'https://konachan.net/post/show/' + item.id" target="_blank">
                 <p>
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24"
                        height="24"
