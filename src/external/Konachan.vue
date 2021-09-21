@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="alert alert-primary" role="alert">
-      这个页面的信息采集于 KonaChan API,数据更新可能延迟，点击后跳转到 Pixiv
+      这个页面的信息采集于 KonaChan API,数据更新可能延迟
     </div>
     <div class="row">
       <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
