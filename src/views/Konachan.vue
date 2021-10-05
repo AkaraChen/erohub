@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
-        <a class="btn btn-pill" @click="prev">Prev</a>
+        <a class="btn btn-pill" :class="{disabled:disablePrev}" @click="prev">Prev</a>
         <div class="pagination">
           <div v-for="item in pagination">
         <span style="margin-left: 3px;margin-right: 3px" class="avatar rounded-circle"
@@ -65,6 +65,9 @@ export default {
     }
   },
   computed: {
+    disablePrev() {
+      return Number(this.$route.params.page) === 1;
+    },
     pagination() {
       if (Number(this.$route.params.page) === 1) {
         return [
