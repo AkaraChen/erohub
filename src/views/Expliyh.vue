@@ -1,36 +1,47 @@
 <template>
-      <div v-if="haveRead" class="alert alert-info alert-dismissible" role="alert">
-        <div class="d-flex">
-          <div>
-            <Icon class="alert-icon" icon="info-circle"/>
-          </div>
-          <div>
-            <h4 class="alert-title">本页面内容来自“请叫我旗舰处理器”</h4>
-            <div class="text-muted">点击文章标题,即可自动重定向到<a href="https://expli.top"> Expliyh 的站点</a></div>
-          </div>
-        </div>
-        <a class="btn-close" @click="read" data-bs-dismiss="alert" aria-label="close"></a>
+  <div v-if="haveRead" class="alert alert-info alert-dismissible" role="alert">
+    <div class="d-flex">
+      <div>
+        <Icon class="alert-icon" icon="info-circle"/>
       </div>
-    <div class="row">
-      <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
-        <div class="card">
-          <img v-if="item.id" class="zoom" :src="item.yoast_head_json.og_image[0].url" alt="" height="auto"/>
-          <div v-else class="skeleton-image zoom"></div>
-          <div class="card-body">
-            <h3 class="card-title">
-              <a :href="item.link" target="_blank">
-                <p v-if="item.id">{{ item.title.rendered }}</p>
-                <p v-else>Loading<span class="animated-dots"></span></p>
-              </a></h3>
-          </div>
-        </div>
-      </div>
-      <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
-        <router-link class="btn btn-white btn-pill" :to="'/expliyh/page/'+(this.$route.params.page-1)">Prev</router-link>
-        <span class="avatar bg-blue-lt rounded-circle" style="margin-right: 5px;margin-left: 5px">{{ this.$route.params.page }}</span>
-        <router-link class="btn btn-white btn-pill" :to="'/expliyh/page/'+(Number(this.$route.params.page)+1)">Next</router-link>
+      <div>
+        <h4 class="alert-title">本页面内容来自“请叫我旗舰处理器”</h4>
+        <div class="text-muted">点击文章标题,即可自动重定向到<a href="https://expli.top"> Expliyh 的站点</a></div>
       </div>
     </div>
+    <a class="btn-close" @click="read" data-bs-dismiss="alert" aria-label="close"></a>
+  </div>
+  <div class="row">
+    <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
+      <div class="card">
+        <img v-if="item.id" class="zoom" :src="item.yoast_head_json.og_image[0].url" alt="" height="auto"/>
+        <div v-else class="skeleton-image zoom"></div>
+        <div class="card-body">
+          <h3 class="card-title">
+            <a :href="item.link" target="_blank">
+              <p v-if="item.id">{{ item.title.rendered }}</p>
+              <p v-else>Loading<span class="animated-dots"></span></p>
+            </a></h3>
+        </div>
+      </div>
+    </div>
+    <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
+      <router-link class="btn btn-pill" :to="'/page/'+(this.$route.params.page-1)">Prev</router-link>
+      <div class="pagination">
+        <div v-for="item in pagination">
+        <span style="margin-left: 3px;margin-right: 3px" class="avatar rounded-circle"
+              :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
+          <p v-if="item.active"> {{ item.id }} </p>
+          <router-link v-else :to="'/page/'+item.id">
+            {{ item.id }}
+          </router-link>
+        </span>
+        </div>
+      </div>
+      <router-link class="btn btn-pill" :to="'/page/'+(Number(this.$route.params.page)+1)">Next
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -46,6 +57,35 @@ export default {
     return {
       meta: '',
       haveRead: true
+    }
+  },
+  computed: {
+    pagination() {
+      if (Number(this.$route.params.page) === 1) {
+        return [
+          {"id": this.$route.params.page, "active": "true"},
+          {"id": Number(this.$route.params.page) + 1},
+          {"id": Number(this.$route.params.page) + 2},
+          {"id": Number(this.$route.params.page) + 3, "class": "hideInPhone"},
+          {"id": Number(this.$route.params.page) + 4, "class": "hideInPhone"},
+        ]
+      } else if (Number(this.$route.params.page) === 2) {
+        return [
+          {"id": Number(this.$route.params.page) - 1},
+          {"id": this.$route.params.page, "active": "true"},
+          {"id": Number(this.$route.params.page) + 1},
+          {"id": Number(this.$route.params.page) + 2, "class": "hideInPhone"},
+          {"id": Number(this.$route.params.page) + 3, "class": "hideInPhone"},
+        ]
+      } else {
+        return [
+          {"id": Number(this.$route.params.page) - 2, "class": "hideInPhone"},
+          {"id": Number(this.$route.params.page) - 1},
+          {"id": this.$route.params.page, "active": "true"},
+          {"id": Number(this.$route.params.page) + 1},
+          {"id": Number(this.$route.params.page) + 2, "class": "hideInPhone"},
+        ]
+      }
     }
   },
   methods: {

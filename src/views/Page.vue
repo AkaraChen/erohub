@@ -74,7 +74,6 @@ export default {
       meta: undefined,
     }
   },
-
   computed: {
     pagination() {
       if (Number(this.$route.params.page) === 1) {
