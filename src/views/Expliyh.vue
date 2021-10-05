@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <div class="alert alert-primary" role="alert">
-      这个页面的信息全部采集于 Expliyh ，点击后会跳转到 Expliyh 的站点
-    </div>
+      <div v-if="haveRead" class="alert alert-info alert-dismissible" role="alert">
+        <div class="d-flex">
+          <div>
+            <Icon class="alert-icon" icon="info-circle"/>
+          </div>
+          <div>
+            <h4 class="alert-title">本页面内容来自“请叫我旗舰处理器”</h4>
+            <div class="text-muted">点击文章标题,即可自动重定向到<a href="https://expli.top"> Expliyh 的站点</a></div>
+          </div>
+        </div>
+        <a class="btn-close" @click="read" data-bs-dismiss="alert" aria-label="close"></a>
+      </div>
     <div class="row">
       <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
         <div class="card">
@@ -15,27 +23,38 @@
           </div>
         </div>
       </div>
-      <div class="pagination" style="margin-top: 10px;justify-content:center;">
-        <router-link class="btn" :to="'/expliyh/page/'+(this.$route.params.page-1)">上一页</router-link>
-        <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
-        <router-link class="btn" :to="'/expliyh/page/'+(Number(this.$route.params.page)+1)">下一页</router-link>
+      <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
+        <router-link class="btn btn-white btn-pill" :to="'/expliyh/page/'+(this.$route.params.page-1)">Prev</router-link>
+        <span class="avatar bg-blue-lt rounded-circle" style="margin-right: 5px;margin-left: 5px">{{ this.$route.params.page }}</span>
+        <router-link class="btn btn-white btn-pill" :to="'/expliyh/page/'+(Number(this.$route.params.page)+1)">Next</router-link>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
 import axios from 'axios'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import Icon from "../components/Icon";
+import Cookies from 'js-cookie'
 
 export default {
+  components: {Icon},
   data() {
     return {
       meta: '',
+      haveRead: true
+    }
+  },
+  methods: {
+    read() {
+      Cookies.set('expRead', 'True')
     }
   },
   created() {
+    if (Cookies.get('expRead')) {
+      this.haveRead = undefined
+    }
     const data = []
     for (let i = 1; i <= 12; i++) {
       data.push({

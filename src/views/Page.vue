@@ -12,11 +12,11 @@
         </div>
       </div>
     </div>
-      <div class="pagination" style="margin-top: 10px;justify-content:center;">
-        <router-link class="btn" :to="'/page/'+(this.$route.params.page-1)">上一页</router-link>
-        <a class="btn" style="margin-left: 5px;margin-right: 5px">当前页面：{{ this.$route.params.page }}</a>
-        <router-link class="btn" :to="'/page/'+(Number(this.$route.params.page)+1)">下一页</router-link>
-      </div>
+    <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
+      <router-link class="btn btn-white btn-pill" :to="'/page/'+(this.$route.params.page-1)">Prev</router-link>
+      <span class="avatar bg-blue-lt rounded-circle" style="margin-right: 5px;margin-left: 5px">{{ this.$route.params.page }}</span>
+      <router-link class="btn btn-white btn-pill" :to="'/page/'+(Number(this.$route.params.page)+1)">Next</router-link>
+    </div>
   </div>
 </template>
 
@@ -45,14 +45,24 @@ p {
 import axios from 'axios'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import Icon from "../components/Icon";
 
 export default {
+  components: {Icon},
   data() {
     return {
-      meta: ''
+      meta: '',
+      pagination: ''
     }
   },
   created() {
+    if (Number(this.$route.params.page) === 1) {
+      this.pagination = 1
+    } else if (Number(this.$route.params.page) === 2) {
+      this.pagination = 2
+    } else {
+      this.pagination = Number(this.$route.params.page)
+    }
     const data = []
     for (let i = 1; i <= 12; i++) {
       data.push({
@@ -63,7 +73,7 @@ export default {
     this.meta = data
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://backend.erohub.org/page/'+this.$route.params.page+'.json')
+    axios.get('https://backend.erohub.org/webpage/' + this.$route.params.page + '.json')
         .then(response => (this.meta = response.data.data))
         .catch(error => {
           console.log(error)

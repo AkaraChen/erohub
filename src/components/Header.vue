@@ -14,7 +14,6 @@
         },
         {'title':'Expliyh',
         'link':'/expliyh',
-        'target':'_blank',
         'icon':'panorama-horizontal',
         }
         ]"
