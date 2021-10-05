@@ -75,18 +75,18 @@ export default {
     pagination() {
       if (Number(this.$route.params.page) === 1) {
         return [
-          {"id": this.$route.params.page, "active": "true", "class": "hideInPhone"},
+          {"id": this.$route.params.page, "active": "true"},
           {"id": Number(this.$route.params.page) + 1},
           {"id": Number(this.$route.params.page) + 2},
-          {"id": Number(this.$route.params.page) + 3},
+          {"id": Number(this.$route.params.page) + 3, "class": "hideInPhone"},
           {"id": Number(this.$route.params.page) + 4, "class": "hideInPhone"},
         ]
       } else if (Number(this.$route.params.page) === 2) {
         return [
-          {"id": Number(this.$route.params.page) - 1, "class": "hideInPhone"},
+          {"id": Number(this.$route.params.page) - 1},
           {"id": this.$route.params.page, "active": "true"},
           {"id": Number(this.$route.params.page) + 1},
-          {"id": Number(this.$route.params.page) + 2},
+          {"id": Number(this.$route.params.page) + 2, "class": "hideInPhone"},
           {"id": Number(this.$route.params.page) + 3, "class": "hideInPhone"},
         ]
       } else {
