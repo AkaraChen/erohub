@@ -16,13 +16,16 @@
     </div>
     <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
       <router-link class="btn btn-pill" :to="'/page/'+(this.$route.params.page-1)">Prev</router-link>
-      <div v-for="item in pagination">
-        <span class="avatar rounded-circle" :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
+      <div class="pagination">
+        <div v-for="item in pagination">
+        <span style="margin-left: 3px;margin-right: 3px" class="avatar rounded-circle"
+              :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
           <p v-if="item.active"> {{ item.id }} </p>
           <router-link v-else :to="'/page/'+item.id">
             {{ item.id }}
           </router-link>
         </span>
+        </div>
       </div>
       <router-link class="btn btn-pill" :to="'/page/'+(Number(this.$route.params.page)+1)">Next
       </router-link>
@@ -32,7 +35,8 @@
 
 <style scoped>
 .pagination {
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
+  justify-content: center !important;
 }
 
 .zoom {
@@ -50,7 +54,7 @@ p {
 
 @media (max-width: 767px) {
   .hideInPhone {
-    display: none;
+    display: none !important;
   }
 }
 
