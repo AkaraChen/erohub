@@ -2,11 +2,13 @@
   <div class="row">
     <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-top: 10px">
       <div class="card">
-        <img class="zoom" :src="item.thumb" alt="" height="auto"/>
+        <img v-if="item.cid" class="zoom" :src="item.thumb" alt="" height="auto"/>
+        <div v-else class="skeleton-image zoom"></div>
         <div class="card-body">
           <h3 class="card-title">
             <router-link :to="'/archives/' + item.cid">
-              <p>{{ item.title }}</p>
+              <p v-if="item.cid">{{ item.title }}</p>
+              <p v-else>Loading<span class="animated-dots"></span></p>
             </router-link>
           </h3>
         </div>
@@ -51,23 +53,14 @@ export default {
   components: {Icon},
   data() {
     return {
-      meta: '',
-      pagination: ''
+      meta: undefined,
     }
   },
   created() {
-    if (Number(this.$route.params.page) === 1) {
-      this.pagination = 1
-    } else if (Number(this.$route.params.page) === 2) {
-      this.pagination = 2
-    } else {
-      this.pagination = Number(this.$route.params.page)
-    }
     const data = []
     for (let i = 1; i <= 12; i++) {
       data.push({
-        "title": "加载中...",
-        "thumb": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"
+        "": "",
       });
     }
     this.meta = data

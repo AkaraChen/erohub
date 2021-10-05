@@ -14,11 +14,13 @@
     <div class="row">
       <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
         <div class="card">
-          <img class="zoom" :src="item.yoast_head_json.og_image[0].url" alt="" height="auto"/>
+          <img v-if="item.id" class="zoom" :src="item.yoast_head_json.og_image[0].url" alt="" height="auto"/>
+          <div v-else class="skeleton-image zoom"></div>
           <div class="card-body">
             <h3 class="card-title">
               <a :href="item.link" target="_blank">
-                <p>{{ item.title.rendered }}</p>
+                <p v-if="item.id">{{ item.title.rendered }}</p>
+                <p v-else>Loading<span class="animated-dots"></span></p>
               </a></h3>
           </div>
         </div>
@@ -59,7 +61,6 @@ export default {
     for (let i = 1; i <= 12; i++) {
       data.push({
         "title": {"rendered": "加载中"},
-        "yoast_head_json": {"og_image": [{"url": "https://cdn.jsdelivr.net/gh/AkaraChen/image@main/lazy.gif"}]}
       });
     }
     this.meta = data

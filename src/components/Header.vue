@@ -5,7 +5,6 @@
       :list="[
         {'title':'首页',
         'link':'/',
-        'target':'_blank',
         'icon':'home'
         },
         {'title':'Konachan',
