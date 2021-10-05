@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
+    <Header/>
     <div class="container" style="margin-top: 10px">
       <router-view :key="$route.params.page"/>
     </div>
@@ -13,10 +13,11 @@
 
 <script>
 import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 
 export default {
   name: 'App',
-  components: {Navbar}
+  components: {Header, Navbar}
 }
 
 </script>

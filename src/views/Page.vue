@@ -63,7 +63,7 @@ export default {
     this.meta = data
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://backend.erohub.org/page/' + this.$route.params.page + '.json')
+    axios.get('https://backend.erohub.org/page/'+this.$route.params.page+'.json')
         .then(response => (this.meta = response.data.data))
         .catch(error => {
           console.log(error)

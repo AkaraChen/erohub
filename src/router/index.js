@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory,} from 'vue-router'
-const Page = () => import("../components/Page")
-const Post = () => import("../components/Post")
-const Konachan = () => import("@/external/Konachan")
-const Expliyh = () => import("@/external/Expliyh")
+const Page = () => import("@/views/Page")
+const Post = () => import("@/views/Post")
+const Konachan = () => import("@/views/Konachan")
+const Expliyh = () => import("@/views/Expliyh")
 
 const routes = [
     {
