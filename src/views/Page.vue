@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .pagination {
   margin-bottom: 10px !important;
   justify-content: center !important;

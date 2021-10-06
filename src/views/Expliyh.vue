@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
-      <router-link class="btn btn-pill" :class="{disabled:disablePrev}" :to="'/page/'+(this.$route.params.page-1)">
+      <router-link class="btn btn-pill" :class="{disabled:disablePrev}" :to="'/expliyh/page/'+(this.$route.params.page-1)">
         Prev
       </router-link>
       <div class="pagination">
@@ -34,13 +34,13 @@
         <span style="margin-left: 3px;margin-right: 3px" class="avatar rounded-circle"
               :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
           <p v-if="item.active"> {{ item.id }} </p>
-          <router-link v-else :to="'/page/'+item.id">
+          <router-link v-else :to="'/expliyh/page/'+item.id">
             {{ item.id }}
           </router-link>
         </span>
         </div>
       </div>
-      <router-link class="btn btn-pill" :to="'/page/'+(Number(this.$route.params.page)+1)">Next
+      <router-link class="btn btn-pill" :to="'/expliyh/page/'+(Number(this.$route.params.page)+1)">Next
       </router-link>
     </div>
   </div>
@@ -138,5 +138,11 @@ p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+  .hideInPhone {
+    display: none !important;
+  }
 }
 </style>

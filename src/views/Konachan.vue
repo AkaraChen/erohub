@@ -39,7 +39,7 @@
         <span style="margin-left: 3px;margin-right: 3px" class="avatar rounded-circle"
               :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
           <p v-if="item.active"> {{ item.id }} </p>
-          <a v-else :to="'/konachan/page/'+item.id">{{ item.id }}</a>
+          <router-link v-else :to="'/konachan/page/'+item.id">{{ item.id }}</router-link>
         </span>
           </div>
         </div>
@@ -101,10 +101,10 @@ export default {
       Cookies.set('KonaRead', 'True')
     },
     prev() {
-      this.$router.push('/page/' + (Number(this.$route.params.page) - 1))
+      this.$router.push('/konachan/page/' + (Number(this.$route.params.page) - 1))
     },
     next() {
-      this.$router.push('/page/' + (Number(this.$route.params.page) + 1))
+      this.$router.push('/konachan/page/' + (Number(this.$route.params.page) + 1))
     }
   },
   created() {
@@ -146,5 +146,11 @@ p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+  .hideInPhone {
+    display: none !important;
+  }
 }
 </style>
