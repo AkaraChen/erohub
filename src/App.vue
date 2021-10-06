@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header/>
+    <Navbar/>
     <div class="container" style="margin-top: 10px">
       <router-view :key="$route.params.page"/>
     </div>
@@ -8,16 +8,26 @@
 </template>
 
 <style>
+.zoom {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
 
+p {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 </style>
 
 <script>
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
 
 export default {
   name: 'App',
-  components: {Header, Navbar}
+  components: {Navbar}
 }
 
 </script>

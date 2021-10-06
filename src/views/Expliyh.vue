@@ -1,16 +1,5 @@
 <template>
-  <div v-if="haveRead" class="alert alert-info alert-dismissible" role="alert">
-    <div class="d-flex">
-      <div>
-        <Icon class="alert-icon" icon="info-circle"/>
-      </div>
-      <div>
-        <h4 class="alert-title">本页面内容来自“请叫我旗舰处理器”</h4>
-        <div class="text-muted">点击文章标题,即可自动重定向到<a href="https://expli.top"> Expliyh 的站点</a></div>
-      </div>
-    </div>
-    <a class="btn-close" @click="read" data-bs-dismiss="alert" aria-label="close"></a>
-  </div>
+  <Notice name="exp" title="本页面内容来自“请叫我旗舰处理器”" text="点击文章标题,即可自动重定向到<a href='https://expli.top'> Expliyh 的站点</a>"/>
   <div class="row">
     <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
       <div class="card">
@@ -25,24 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="btn-list pagination" style="margin-top: 10px;justify-content:center;">
-      <router-link class="btn btn-pill" :class="{disabled:disablePrev}" :to="'/expliyh/page/'+(this.$route.params.page-1)">
-        Prev
-      </router-link>
-      <div class="pagination">
-        <div v-for="item in pagination">
-        <span style="margin-left: 3px;margin-right: 3px" class="avatar rounded-circle"
-              :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
-          <p v-if="item.active"> {{ item.id }} </p>
-          <router-link v-else :to="'/expliyh/page/'+item.id">
-            {{ item.id }}
-          </router-link>
-        </span>
-        </div>
-      </div>
-      <router-link class="btn btn-pill" :to="'/expliyh/page/'+(Number(this.$route.params.page)+1)">Next
-      </router-link>
-    </div>
+    <Pagination tab="expliyh"/>
   </div>
 </template>
 
@@ -52,45 +24,15 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import Icon from "../components/Icon";
 import Cookies from 'js-cookie'
+import Pagination from "@/components/Pagination";
+import Notice from "@/components/Notice";
 
 export default {
-  components: {Icon},
+  components: {Notice, Pagination, Icon},
   data() {
     return {
       meta: '',
       haveRead: true
-    }
-  },
-  computed: {
-    disablePrev() {
-      return Number(this.$route.params.page) === 1;
-    },
-    pagination() {
-      if (Number(this.$route.params.page) === 1) {
-        return [
-          {"id": this.$route.params.page, "active": "true"},
-          {"id": Number(this.$route.params.page) + 1},
-          {"id": Number(this.$route.params.page) + 2},
-          {"id": Number(this.$route.params.page) + 3, "class": "hideInPhone"},
-          {"id": Number(this.$route.params.page) + 4, "class": "hideInPhone"},
-        ]
-      } else if (Number(this.$route.params.page) === 2) {
-        return [
-          {"id": Number(this.$route.params.page) - 1},
-          {"id": this.$route.params.page, "active": "true"},
-          {"id": Number(this.$route.params.page) + 1},
-          {"id": Number(this.$route.params.page) + 2, "class": "hideInPhone"},
-          {"id": Number(this.$route.params.page) + 3, "class": "hideInPhone"},
-        ]
-      } else {
-        return [
-          {"id": Number(this.$route.params.page) - 2, "class": "hideInPhone"},
-          {"id": Number(this.$route.params.page) - 1},
-          {"id": this.$route.params.page, "active": "true"},
-          {"id": Number(this.$route.params.page) + 1},
-          {"id": Number(this.$route.params.page) + 2, "class": "hideInPhone"},
-        ]
-      }
     }
   },
   methods: {
@@ -104,9 +46,7 @@ export default {
     }
     const data = []
     for (let i = 1; i <= 12; i++) {
-      data.push({
-        "title": {"rendered": "加载中"},
-      });
+      data.push({"": '',});
     }
     this.meta = data
     NProgress.start()
@@ -121,28 +61,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.pagination {
-  margin-bottom: 10px;
-}
-
-.zoom {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-p {
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 767px) {
-  .hideInPhone {
-    display: none !important;
-  }
-}
-</style>
