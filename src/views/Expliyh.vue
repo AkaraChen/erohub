@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <Pagination tab="expliyh"/>
+    <Pagination param="expliyh"/>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ import axios from 'axios'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import Icon from "../components/Icon";
-import Cookies from 'js-cookie'
 import Pagination from "@/components/Pagination";
 import Notice from "@/components/Notice";
 
@@ -32,18 +31,9 @@ export default {
   data() {
     return {
       meta: '',
-      haveRead: true
-    }
-  },
-  methods: {
-    read() {
-      Cookies.set('expRead', 'True')
     }
   },
   created() {
-    if (Cookies.get('expRead')) {
-      this.haveRead = undefined
-    }
     const data = []
     for (let i = 1; i <= 12; i++) {
       data.push({"": '',});

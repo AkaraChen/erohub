@@ -7,12 +7,8 @@
               :class="{'bg-blue-lt':item.active,hideInPhone:item.class}">
           <p v-if="item.active"> {{ item.id }} </p>
           <div v-else>
-            <router-link v-if="param" :to="'/'+param+'/page/'+item.id">
-            {{ item.id }}
-            </router-link>
-            <router-link v-else :to="'/page/'+item.id">
-              {{ item.id }}
-            </router-link>
+            <router-link v-if="param" :to="'/'+param+'/page/'+item.id">{{ item.id }}</router-link>
+            <router-link v-else :to="'/page/'+item.id">{{ item.id }}</router-link>
           </div>
         </span>
       </div>

@@ -20,14 +20,13 @@
         </div>
       </div>
     </div>
-    <Pagination tab="konachan"/>
+    <Pagination param="konachan"/>
   </div>
 </template>
 <script>
 import axios from 'axios'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import Cookies from "js-cookie";
 import Icon from "../components/Icon";
 import Pagination from "@/components/Pagination";
 import Notice from "@/components/Notice";
@@ -38,13 +37,9 @@ export default {
   data() {
     return {
       meta: '',
-      haveRead: true
     }
   },
   created() {
-    if (Cookies.get('KonaRead')) {
-      this.haveRead = undefined
-    }
     const data = []
     for (let i = 1; i <= 12; i++) {
       data.push({"": "",});
