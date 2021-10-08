@@ -18,7 +18,7 @@ export default {
   created() {
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://backend.erohub.org/post/' + this.$route.params.post + '.json')
+    axios.get('https://cdn.jsdelivr.net/gh/AkaraChen/erohub-backend@latest/dist/post/' + this.$route.params.post + '.json')
         .then(response => (this.meta = response.data.data)(document.title = response.data.data.title + ' - Erohub'))
         .catch(error => {
           console.log(error)
