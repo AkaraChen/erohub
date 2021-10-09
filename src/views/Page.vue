@@ -8,7 +8,7 @@
           <h3 class="card-title">
             <router-link :to="'/archives/' + item.cid">
               <p v-if="item.cid">{{ item.title }}</p>
-              <p v-else>Loading<span class="animated-dots"/></p>
+              <div v-else class="skeleton-line skeleton-line-full"></div>
             </router-link>
           </h3>
         </div>

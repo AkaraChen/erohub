@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import {inject} from "vue";
 
 export default {
   name: "Pagination",
   props: {
-    param() {
-      return inject('param', undefined)
+    param: {
+      type: String,
+      default: undefined
     }
   },
   methods: {

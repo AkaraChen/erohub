@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="masonry" v-html="meta.text"></div>
+    <div v-if="meta" class="masonry" v-html="meta.text"></div>
   </div>
 </template>
 
@@ -8,13 +8,16 @@
 import axios from "axios";
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import Icon from "@/components/Icon";
 
 export default {
+  components: {Icon},
   data() {
     return {
-      meta: '',
+      meta: undefined,
     }
-  },
+  }
+  ,
   created() {
     NProgress.start()
     NProgress.set(0.4)

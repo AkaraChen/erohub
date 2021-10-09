@@ -12,10 +12,7 @@
                 <Icon icon="user"/>
                 作者：{{ item.author }}
               </p>
-              <p v-else>
-                <Icon icon="user"/>
-                Loading<span class="animated-dots"></span>
-              </p>
+              <div v-else class="skeleton-heading"></div>
             </a></h3>
         </div>
       </div>

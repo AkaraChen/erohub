@@ -9,7 +9,7 @@
           <h3 class="card-title">
             <a :href="item.link" target="_blank">
               <p v-if="item.id">{{ item.title.rendered }}</p>
-              <p v-else>Loading<span class="animated-dots"></span></p>
+              <div v-else class="skeleton-heading"></div>
             </a></h3>
         </div>
       </div>

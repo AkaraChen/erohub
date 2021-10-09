@@ -1,8 +1,4 @@
 import {createRouter, createWebHistory,} from 'vue-router'
-const Page = () => import("@/views/Page")
-const Post = () => import("@/views/Post")
-const Konachan = () => import("@/views/Konachan")
-const Expliyh = () => import("@/views/Expliyh")
 
 const routes = [
     {
@@ -11,11 +7,11 @@ const routes = [
     },
     {
         path: '/page/:page',
-        component: Page
+        component: () => import("@/views/Page")
     },
     {
         path: '/archives/:post',
-        component: Post
+        component: () => import("@/views/Post")
     },
     {
         path: '/konachan',
@@ -23,7 +19,7 @@ const routes = [
     },
     {
         path: '/konachan/page/:page',
-        component: Konachan,
+        component: () => import("@/views/Konachan"),
     },
     {
         path: '/expliyh',
@@ -31,8 +27,12 @@ const routes = [
     },
     {
         path: '/expliyh/page/:page',
-        component: Expliyh,
+        component: () => import("@/views/Expliyh"),
     },
+    {
+        path: '/:w+',
+        component: () => import("@/views/404")
+    }
 ]
 
 const router = createRouter({
