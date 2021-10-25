@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="meta" class="masonry" v-html="meta.text"></div>
+    <div class="masonry" v-html="meta.text"></div>
   </div>
 </template>
 
