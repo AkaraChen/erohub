@@ -1,7 +1,7 @@
 <template>
   <Notice name="kona" title="本页面内容来自“Konachan”" text="点击文章标题,即可自动重定向到源地址"/>
   <div class="row">
-    <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px">
+    <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 10px" :key="item">
       <div class="card">
         <img v-if="item.id" class="zoom" :src="item.preview_url" alt="" height="auto"/>
         <div v-else class="skeleton-image zoom"></div>
@@ -44,7 +44,7 @@ export default {
     this.meta = data
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://cdn.jsdelivr.net/gh/AkaraChen/Konachan@latest/dist/' + this.$route.params.page + '.json')
+    axios.get('https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/' + this.$route.params.page + '.json')
         .then(response => (this.meta = response.data))
         .catch(error => {
           console.log(error)

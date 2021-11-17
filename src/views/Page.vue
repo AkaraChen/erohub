@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-top: 10px">
+    <div v-for="item in meta" class="col-md-4 col-lg-3 col-sm-6" style="margin-top: 10px" :key="item">
       <div class="card">
         <img v-if="item.cid" class="zoom" :src="item.thumb" alt=""/>
         <div v-else class="skeleton-image zoom"></div>
