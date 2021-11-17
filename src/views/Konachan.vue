@@ -44,7 +44,7 @@ export default {
     this.meta = data
     NProgress.start()
     NProgress.set(0.4)
-    axios.get('https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/' + this.$route.params.page + '.json')
+    axios.get('https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/konachan/' + this.$route.params.page + '.json')
         .then(response => (this.meta = response.data))
         .catch(error => {
           console.log(error)
