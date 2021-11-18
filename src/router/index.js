@@ -14,20 +14,16 @@ const routes = [
         component: () => import("@/views/Post")
     },
     {
-        path: '/konachan',
-        redirect: '/konachan/page/1',
-    },
-    {
         path: '/konachan/page/:page',
         component: () => import("@/views/Konachan"),
     },
     {
-        path: '/expliyh',
-        redirect: '/expliyh/page/1',
-    },
-    {
         path: '/expliyh/page/:page',
         component: () => import("@/views/Expliyh"),
+    },
+    {
+        path: '/safebooru/page/:page',
+        component: ()=> import("@/views/Safebooru")
     },
     {
         path: '/:w+',

@@ -9,19 +9,24 @@ export default {
       list: [
         {
           'title': '首页',
-          'link': '/',
+          'link': '/page/1',
           'icon': 'home'
         },
         {
           'title': 'Konachan',
-          'link': '/konachan',
+          'link': '/konachan/page/1',
           'icon': 'award',
         },
         {
           'title': 'Expliyh',
-          'link': '/expliyh',
+          'link': '/expliyh/page/1',
           'icon': 'panorama-horizontal',
-        }
+        },
+        {
+          'title': 'Safebooru',
+          'link': '/safebooru/page/1',
+          'icon': 'compass'
+        },
       ],
       icon: 'https://pic.rmb.bdstatic.com/bjh/3d9f808a9d10def8dad85f1ee81d6722.png',
       sticky: true
@@ -58,11 +63,11 @@ export default {
       <div class="collapse navbar-collapse" id="navbar-menu">
         <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
           <ul class="navbar-nav">
-            <li class="nav-item" v-for="item in list">
+            <li class="nav-item" v-for="item in list" :key="item">
               <router-link :target="item.target"
                            class="nav-link" :to="item.link">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                    <Icon :icon="item.icon"/>
+                    <Icon class="icon" :icon="item.icon"/>
                   </span>
                 <span class="nav-link-title">{{ item.title }}</span>
               </router-link>

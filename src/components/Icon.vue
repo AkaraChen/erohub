@@ -1,5 +1,5 @@
 <template>
-  <i class="icon" :class="'ti ti-'+icon"></i>
+  <i :class="'ti ti-'+icon"></i>
 </template>
 
 <script>
