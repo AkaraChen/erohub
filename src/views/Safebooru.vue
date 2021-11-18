@@ -7,7 +7,7 @@
         <div v-else class="skeleton-image zoom"></div>
         <div class="card-body">
           <h3 class="card-title">
-            <a :href="'https://konachan.net/post/show/' + item.id" target="_blank">
+            <a :href="'https://safebooru.org/index.php?page=post&s=view&id=' + item.id" target="_blank">
               <p v-if="item.id">
                 <Icon icon="id"/>
                     {{ item.id }}
