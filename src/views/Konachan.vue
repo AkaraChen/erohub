@@ -49,7 +49,7 @@ export default {
         .catch(error => {
           console.log(error)
         });
-    document.title = 'KonaChan - 第' + this.$route.params.page + '页'
+    document.title = 'Safebooru - 第' + this.$route.params.page + '页'
     NProgress.done()
   },
 }
