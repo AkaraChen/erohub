@@ -1,19 +1,32 @@
-# erohub-dev
+# Erohub Front-end Project
 
-## Project setup
+## Description
+
+A simple Vue-based Project to view beautiful Pics.
+
+## Supported origin
+1. Erohub
+2. Safebooru
+3. Expliyh
+4. Konachan
+
+## Features
+
+1. Clear Designed by [Tabler](htttps://preview.tabler.io)
+2. Based on Vue.js ,Fast and stable
+3. Easy to extend(maybe?)
+
+## How to use
+### Build
 ```
-yarn install
+yarn // install dependency
+yarn build // build site
 ```
 
-### Compiles and hot-reloads for development
+### Debug
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## How to Contribute
+Just commit.
