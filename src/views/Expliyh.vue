@@ -13,7 +13,7 @@
     >
       <div class="card">
         <img
-          v-if="item.stamp"
+          v-if="item.title"
           class="zoom"
           :src="item.cover"
           alt=""
@@ -23,7 +23,7 @@
         <div class="card-body">
           <h3 class="card-title">
             <a :href="item.link" target="_blank">
-              <p v-if="item.stamp">{{ item.title.rendered }}</p>
+              <p v-if="item.title">{{ item.title }}</p>
               <div v-else class="skeleton-heading"></div>
             </a>
           </h3>
