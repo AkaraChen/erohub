@@ -13,9 +13,9 @@
     >
       <div class="card">
         <img
-          v-if="item.id"
+          v-if="item.stamp"
           class="zoom"
-          :src="item.yoast_head_json.og_image[0].url"
+          :src="item.cover"
           alt=""
           height="auto"
         />
@@ -23,7 +23,7 @@
         <div class="card-body">
           <h3 class="card-title">
             <a :href="item.link" target="_blank">
-              <p v-if="item.id">{{ item.title.rendered }}</p>
+              <p v-if="item.stamp">{{ item.title.rendered }}</p>
               <div v-else class="skeleton-heading"></div>
             </a>
           </h3>
